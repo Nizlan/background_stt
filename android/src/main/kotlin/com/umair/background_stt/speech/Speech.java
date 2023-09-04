@@ -41,7 +41,7 @@ public class Speech {
     private Context mContext;
 
     private final Map<String, TextToSpeechCallback> mTtsCallbacks = new HashMap<>();
-    private Locale mLocale = Locale.getDefault();
+    private Locale mLocale = new Locale("ru");
     private long mStopListeningDelayInMs = 10000;
     private long mTransitionMinimumDelay = 1200;
     private long mLastActionTimestamp;
