@@ -45,7 +45,7 @@ class BackgroundSttPlugin : FlutterPlugin, ActivityAware, PluginRegistry.Request
             val instance = BackgroundSttPlugin()
             registrar.addRequestPermissionsResultListener(instance)
             requestRecordPermission()
-            setUpPluginMethods(registrar.activity(), registrar.messenger())
+            setUpPluginMethods(registrar.context(), registrar.messenger())
         }
 
         @JvmStatic
@@ -244,8 +244,8 @@ class BackgroundSttPlugin : FlutterPlugin, ActivityAware, PluginRegistry.Request
         SpeechListenService.stopSpeechListener()
     }
 
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>?, grantResults: IntArray?): Boolean {
-        if (requestCode == REQUEST_RECORD_PERMISSIONS && grantResults?.isNotEmpty()!! && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray): Boolean {
+        if (requestCode == REQUEST_RECORD_PERMISSIONS && grantResults.isNotEmpty()!! && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             doIfPermissionsGranted()
             return true
         }

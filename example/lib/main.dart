@@ -120,7 +120,7 @@ class _MyAppState extends State<MyApp> {
                   ? Text('Voice Reply: $voiceReply')
                   : Container(),
               confirmation.isNotEmpty
-                  ? RaisedButton(
+                  ? MaterialButton(
                       child: Text("Cancel Confirmation"),
                       onPressed: () async {
                         await _service.cancelConfirmation;
@@ -135,7 +135,7 @@ class _MyAppState extends State<MyApp> {
                     )
                   : Container(),
               Visibility(
-                child: RaisedButton(
+                child: MaterialButton(
                   child: Text("Pause Listening"),
                   onPressed: () async {
                     await _service.pauseListening();
@@ -149,7 +149,7 @@ class _MyAppState extends State<MyApp> {
                     });
                   },
                 ),
-                replacement: RaisedButton(
+                replacement: MaterialButton(
                   child: Text("Resume Listening"),
                   onPressed: () async {
                     await _service.resumeListening();
@@ -165,7 +165,7 @@ class _MyAppState extends State<MyApp> {
                 ),
                 visible: isListening,
               ),
-              RaisedButton(
+              MaterialButton(
                 child: Text("Speak"),
                 onPressed: () async {
                   var t = DateTime.now();

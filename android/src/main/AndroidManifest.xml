@@ -7,4 +7,7 @@
     <application>
         <service android:name=".SpeechListenService" />
     </application>
+    <meta-data
+    android:name="flutterEmbedding"
+    android:value="2" />
 </manifest>
